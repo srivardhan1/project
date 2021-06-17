@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <form class="d-flex">
+        <form>
+            <fieldset>
+              <legend>REGISTRATION</legend>
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label mt-4">Username</label>
+                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label mt-4">Confirm Password</label>
+                <input type="password" class="form-control" id="cpassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label mt-4">Birthday</label>
+                <input type="date" class="form-control" id="date" placeholder="Birthday">
+              </div>
+              <fieldset class="form-group">
+                <legend class="mt-4">Gender</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="male" value="male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="female" value="female">
+                    Female
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="other" value="other">
+                    Other
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="form-label mt-4">Email Phone Number</label>
+                  <input type="text" class="form-control" id="phonenumber" aria-describedby="emailHelp" placeholder="Enter Phone Number">
+                </div>
+                    
+                </fieldset>
+                
+            </fieldset>
+        </form>
+        <button onclick="save()" type="submit" class="btn btn-primary" id="btn">Submit</button>
+    </form>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+   $( ".form-check-input" ).on( "change", function() {
+    console.log("checked");
+        if($('.form-check-input').prop('checked')){
+            console.log("checked");
+        $("#btn").attr("disabled", false);
+        }
+        else{
+            $("#btn").attr("disabled", true);
+        }
+});
+    function save(){
+      console.log("saved");
+       // $('#one').html("Registration Successful");
+    var userObject={};
+    userObject.username=$("#username").val();
+    userObject.password=$("#password").val();
+    userObject.birthday=$("#date").val();
+    if(document.getElementById('male').checked) {
+        userObject.gender=$("#male").val();
+}else if(document.getElementById('female').checked) {
+    userObject.gender=$("#female").val();
+}
+else if(document.getElementById('other').checked) {
+    userObject.gender=$("#other").val();
+}
+
+   // userObject.gender=$("#gender").val();
+    userObject.email=$("#email").val();
+    userObject.phonenumber=$("#phonenumber").val();
+    //console.log(userObject);
+    $.ajax({
+        url: "/regis",
+        type: "POST",
+        data: userObject,
+        success: function(data) {
+          //console.log(JSON.stringify(data));
+          toastr.success(data.message, 'Successful');
+       for(var i=0;i<data.length;i++) {
+           console.log(data[i]);
+          
+        }
+        },
+        error: function (xhr, status, error) {
+          toastr.error(data.message, 'Failed');
+        //alert(error);
+        }
+        });
+    /*$.post("/api/users",userObject)
+        .done(function(data){
+            console.log(data);
+        });*/
+}
+</script>
+</html>

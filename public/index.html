@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/mailbox" target="_blank">Mailbox</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="signedIn">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a id="welcomeUser" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome user</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/profile.html" target="_blank" id="profile">Profile</a>
+              <a class="dropdown-item" href="/chat.html">Chat</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a id="lnkLogout" class="dropdown-item" href="#">Logout</a>
+              <a id="lnkSignout" class="dropdown-item" href="#">Logout</a>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </nav>
+  <div style="padding-top: 60px;" id="notSignedIn" >
+  <form class="form-signin">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="text" class="form-control" placeholder="Email address" required="" autofocus="" id="Username">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" class="form-control" placeholder="Password" required="" id="Password">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me" style="color:blue"> Remember me
+      </label>
+    </div>
+    <pre style="font-size: medium;"><p>Don't have an account?</p><a href="/registration.html">Sign Up</a></pre>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogIn">Login</button>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  </form>
+  </div>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="445093466494-u1c7jg8178j553gv6o6ao8uohia3cja6.apps.googleusercontent.com">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/site.js"></script>
+</body>
+</html>
