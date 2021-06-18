@@ -106,6 +106,10 @@ app.get('/chat',function(req,res){
     path=__dirname+'/public/chat.html';
     res.sendFile(path);
 })
+app.get('/contact',function(req,res){
+    path=__dirname+'/public/contact.html';
+    res.sendFile(path);
+})
 const port = process.env.PORT || 3000;
 http.listen(port, () => {
     console.log(`Socket.IO server running at http://localhost:${port}/`);
