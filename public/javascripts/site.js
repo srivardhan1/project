@@ -11,6 +11,7 @@
         $("#signedIn").hide();
     }
 }*/
+
 $("#lnkSignout").on('click',function(){
     $.post( "/api/logout")
     .done(function( data ) {
@@ -20,6 +21,13 @@ $("#lnkSignout").on('click',function(){
         if(data.success==false){
             $("#notSignedIn").show();
             $("#signedIn").hide();
+            $("#signedInchat").hide();
+            $("#mailb").hide();
+            $("#profileb").hide();
+            $("#slide").hide();
+            $("#users").hide();
+            $("#signedInPost").hide();
+            $("#posts").hide();
             signOut();
         }
     })
@@ -36,26 +44,40 @@ function signOut() {
       console.log('User signed out.');
     });
   }
-  function getPayload(){
-    $.post( "/loggedin")
+$("#search").on('click',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var user=$("#input-search").val();
+    console.log("hi");
+    $.get( "/api/search"+user)
     .done(function( data ) {
+        //console.log("enter");
         //signOut();
         //console.log("signed out");
         //onSignIn(false);
-        //console.log(data);
+        if(data.success==true){
+            toastr.success( 'User Found');
+        console.log(JSON.stringify(data.user.username));
+        $("#name").html(JSON.stringify(data.user.username));
+        }
+        else{
+            toastr.error( 'User Not Found');
+        }
     })
     .fail(function() {
+        //toastr.error( 'User Not Found');
         //alert( "error" );
     })
     .always(function() {
+        //toastr.error( 'User Not Found');
         //alert( "finished" );
     });
-  }
+  })
 function onSignIn(googleUser) {
     //console.log("signin");
     var id_token = googleUser.getAuthResponse().id_token;
     var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/loggedin');
+        xhr.open('POST', '/api/loggedin');
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function() {
             //console.log(payload);
@@ -69,23 +91,49 @@ function onSignIn(googleUser) {
         $("#notSignedIn").hide();
         $("#lnkLogout").hide();
         $("#lnkSignout").show();
+        $("#signedInchat").show();
+        $("#mailb").show();
+        $("#profileb").show();
+        $("#slide").show();
+        $("#users").show();
+        $("#posts").show();
+        $("#signedInPost").show();
             //onSignIn(true);
         }
         };
         xhr.send(JSON.stringify({token: id_token}));
 }
-$(document).ready(function(){
+
+$(document).ready(function(){ 
+    
     var onSignIn = function(loggedIn){
         if(loggedIn){
             console.log("Logged In");
             $("#signedIn").show();
             $("#notSignedIn").hide();
-           // $("#welcomeUser").html("Welcome "+ userObject.getCurrentUser());
+            $("#mailb").show();
+            $("#signedInchat").show();
+            $("#profileb").show();
+            $("#slide").show();
+            $("#lnkLogout").show();
+            $("#lnkSignout").hide();
+            $("#users").show();
+            $("#signedInPost").show();
+            $("#posts").show();
+            $("#welcomeUser").html("Welcome "+ userObject.getCurrentUserName());
+            $("#homeuser").html("WELCOME "+ userObject.getCurrentUserName());
         }
         else{
             console.log("Not Logged In");
             $("#notSignedIn").show();
             $("#signedIn").hide();
+            $("#signedInchat").hide();
+            $("#mailb").hide();
+            $("#profileb").hide();
+            $("#slide").hide();
+            $("#users").hide();
+            $("#posts").hide();
+            $("#signedInPost").hide();
         }
     }
     var userObject = {
@@ -114,29 +162,32 @@ $(document).ready(function(){
             return true;
         }
     };
-
-    console.log("jquery running");
-$("#notSignedIn").show();
-$("#signedIn").hide();
-$("#lnkLogout").click(function(){
-    $.post( "/api/loggedout")
-    .done(function( data ) {
-
-        //console.log(JSON.stringify(data));
-        console.log("signed out");
+    $("#lnkLogout").click(function(){
+        // TODO:  When session is implemented, delete session on server side also
+        $.ajax({
+            url: "/api/loggedout",
+            type: "GET",
+            success: function(data) {
+              
+            if(data.success){
+            //toastr.success( 'Updated successfully');
+            }
+            },
+            error: function (xhr, status, error) {
+            //alert(error);
+            }
+            });
+            userObject.removeCurrentUser(); // will this update UI?
         onSignIn(false);
-        if(data.success){
-            userObject.removeCurrentUser();
-        }
     })
-    .fail(function() {
-        //alert( "error" );
-    })
-    .always(function() {
-        //alert( "finished" );
-    });
-
-})
+    console.log("jquery running");
+if(userObject.isUserLoggedIn()){
+    onSignIn(true);
+}
+else{
+    onSignIn(false);
+}
+//console.log((userObject.getCurrentUserName()));
 $("#btnLogIn").on('click', function(e){
     e.preventDefault();
     e.stopPropagation(); 
@@ -148,13 +199,12 @@ $("#btnLogIn").on('click', function(e){
     console.log(userObj);
     $.post( "/api/login", userObj)
     .done(function( data ) {
-        var datapro=data;
+        //var datapro=data;
         //console.log(datapro);
         //console.log(JSON.stringify(data));
-        
         if(data.success){
             toastr.success(data.message, 'Successful');
-            $("#welcomeUser").html("Welcome "+ JSON.stringify(data.user.username));
+            console.log(data.user);
             userObject.saveUserInLocalStorage(data.user);
             onSignIn(true);
         }
@@ -170,10 +220,25 @@ $("#btnLogIn").on('click', function(e){
     });
 })
 })
+
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
 //console.log(datapro);
-$("#profile").on('click',function(){
-    $("#username").html( JSON.stringify(datapro.user.username));
-    $("#date").html( JSON.stringify(datapro.user.date));
-    $("#email").html(JSON.stringify(datapro.user.email));
-    $("#phonenumber").html(JSON.stringify(datapro.user.phonenumber));
-})

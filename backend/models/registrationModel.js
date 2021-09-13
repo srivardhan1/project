@@ -5,7 +5,6 @@ const registration = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   password: {
     type: String,
@@ -13,6 +12,13 @@ const registration = new mongoose.Schema({
     trim: true,
     
   },
+  role: {
+    type: String,
+    required: true,
+    trim: true,
+    
+  },
+  
   birthday: {
     type: String,
     required: true,
@@ -37,6 +43,9 @@ const registration = new mongoose.Schema({
     trim: true,
     
   },
+  filename: String,
+  contentType:String,
+  image:String
 });
 
 const registrationModel = mongoose.model("registration", registration);

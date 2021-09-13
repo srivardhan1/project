@@ -1,96 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/cosmo.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  
   <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
   <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"
+    integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+
+<body style="background-color: rgba(0, 0, 0, 0.822);">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">Dev-Client</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
+          <div id="home">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+          </div>
+          
+          <div id="profileb">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile.html">Profile</a>
+            </li>
+          </div>
+          <div id="posts">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
-              <span class="visually-hidden">(current)</span>
-            </a>
+            <a class="nav-link" href="/posts.html">posts</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/mailbox" target="_blank">Mailbox</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li>
+          </div>
+          <div id="signedInchat">
+            <li class="nav-item">
+              <a class="nav-link" href="/index2.html"><i style="font-size: 1em;" class="fa fa-commenting-o"
+                  aria-hidden="true"></i></a>
+            </li>
+          </div>
+          <div id="users">
+            <li class="nav-item">
+              <a class="nav-link" href="/userdetails.html">Users</a>
+            </li>
+          </div>
         </ul>
       </div>
       <div id="signedIn">
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="text" placeholder="Search" id="input-search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit" id="search">Search</button>
+        </form>
         <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <a id="welcomeUser" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome user</a>
+
+            <a id="welcomeUser" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+              aria-haspopup="true" aria-expanded="false">Welcome user</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="/profile.html" target="_blank" id="profile">Profile</a>
-              <a class="dropdown-item" href="/chat.html">Chat</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="/profile.html" id="profile" onclick="profile()">Profile</a>
+              <a class="dropdown-item" href="/index2.html">Chat</a>
+              
               <div class="dropdown-divider"></div>
               <a id="lnkLogout" class="dropdown-item" href="#">Logout</a>
               <a id="lnkSignout" class="dropdown-item" href="#">Logout</a>
             </div>
           </li>
         </ul>
-    </div>
+      </div>
   </nav>
-  <div style="padding-top: 60px;" id="notSignedIn" >
-  <form class="form-signin">
-    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" class="form-control" placeholder="Email address" required="" autofocus="" id="Username">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" class="form-control" placeholder="Password" required="" id="Password">
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" style="color:blue"> Remember me
-      </label>
-    </div>
-    <pre style="font-size: medium;"><p>Don't have an account?</p><a href="/registration.html">Sign Up</a></pre>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogIn">Login</button>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  </form>
+
+
+
+  <div style="padding-top: 60px;" id="notSignedIn">
+    <form class="form-signin">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72">
+      <h1 class="h3 mb-3 font-weight-normal" style="color: white;">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="text" class="form-control" placeholder="Email address" required="" autofocus="" id="Username">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" class="form-control" placeholder="Password" required="" id="Password">
+      <div class="checkbox mb-3">
+      </div>
+      <pre style="font-size: medium;"><p style="color: white;">Don't have an account?</p><a href="/registration.html">Sign Up</a></pre>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogIn">Login</button>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </form>
   </div>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="445093466494-u1c7jg8178j553gv6o6ao8uohia3cja6.apps.googleusercontent.com">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="/javascripts/site.js"></script>
+  
+      </div>
+    </div>
+    <div id="slide" style="padding-top: 120px;">
+      <h1 style="text-align: center;" id="homeuser"><b>WELCOME USER</b></h1>
+      <div style="float:left" id="homeimage">
+
+      </div>
+
+      <div id="slide" >
+    
+        <div class="slideshow-container">
+        
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="img1.jpg" style="width:100%">
+          <div class="text">Caption Text</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="img2.jpg" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="img3.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+      </div>
+<h1><b>About Us and Our Work</b></h1>
+<p>This is a platform Where developers and clients can connect each other. </br>We provide service for clients based on their requirements. </br></p>
+<div class="card" style="display:inline-block">
+  <div class="card-body">
+    <h4 class="card-title">DEVELOPERS</h4>
+    <div id="count1" style="font-size: 70px;"></div>
+  </div>
+</div>
+<div class="card" style="display:inline-block;">
+  <div class="card-body">
+    <h4 class="card-title">CLIENTS</h4>
+    <div id="count2" style="font-size: 70px;"></div>
+    
+  </div>
+</div>
+<div class="card" style="display:inline-block">
+  <div class="card-body">
+    <h4 class="card-title">POSTS</h4>
+    <div id="count3" style="font-size: 70px;"></div>
+  </div>
+</div>
+</div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+      content="445093466494-u1c7jg8178j553gv6o6ao8uohia3cja6.apps.googleusercontent.com">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"
+      integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
+      integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/javascripts/site.js"></script>
+
+
 </body>
+     <script>
+       $.ajax({
+        url: "/developers",
+        type: "GET",
+        success: function(data) {
+        if(data.success){
+          animateValue("count1", 0, data.count, 500);
+         //$("#count1").append(`<h1>${data.count}</h1>`)
+        //toastr.success( 'Updated successfully');
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+
+        $.ajax({
+        url: "/clients",
+        type: "GET",
+        success: function(data) {
+        if(data.success){
+          animateValue("count2", 0, data.count, 500);
+         //$("#count2").append(`<h1>${data.count}</h1>`)
+        //toastr.success( 'Updated successfully');
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+
+        $.ajax({
+        url: "/getposts",
+        type: "GET",
+        success: function(data) {
+          
+        if(data.result){
+          animateValue("count3", 0, data.projects.length, 500);
+         //$("#count3").append(`<h1>${data.projects.length}</h1>`)
+        //toastr.success( 'Updated successfully');
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+
+      
+
+        var userObject = {
+        saveUserInLocalStorage: function (userJson) {
+            window.localStorage.setItem('currentUser', JSON.stringify(userJson));
+        },
+        saveTitleInLocalStorage: function (userJson) {
+            window.localStorage.setItem('title', JSON.stringify(userJson));
+        },
+        saveRequireInLocalStorage: function (userJson) {
+            window.localStorage.setItem('requirements', JSON.stringify(userJson));
+        },
+        removeCurrentUser: function () {
+            window.localStorage.removeItem('currentUser');
+        },
+        getCurrentUser: function () {
+            return window.localStorage.getItem('currentUser');
+        },
+        getCurrentUserName: function () {
+            var curUserString = this.getCurrentUser();
+            if (curUserString) {
+                var json = JSON.parse(curUserString);
+                if (json && json.username)
+                    return json.username;
+                return "";
+            }
+            return "";
+        },
+        isUserLoggedIn: function () {
+            if (this.getCurrentUser() == null)
+                return false;
+            return true;
+        }
+    };
+
+    function animateValue(id, start, end, duration) {
+    if (start === end) return;
+    var range = end - start;
+    var current = start;
+    var increment = end > start? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    var obj = document.getElementById(id);
+    var timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current;
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+     </script>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,6 +13,36 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+  <div style="display:inline">
+    <form action="/uploadimage" enctype="multipart/form-data" method="POST" style="display:inline" target="uploader_iframe">
+      <img class="img" src="/profile.jpg" style="display: block;">
+      <input   type="file" class="file" name="image" style="display: block;">
+      <input type="text" id="username1" name="username1" style="display: block;">
+      <input type="submit" value="upload" id="buttonimg" style="display: block;" onclick="uploaded()">
+    </form>
+    <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
+    </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dev-Client</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          
+          
+        </ul>
+      </div>
+  </nav>
+  <div id="profile-space" style="padding-top: 60px;">
     <form class="d-flex">
         <form  aria-disabled="true">
             <fieldset>
@@ -22,10 +52,15 @@
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">EDIT PROFILE</label>
       </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Old Username</label>
+        <input type="text" class="form-control" id="oldusername" aria-describedby="emailHelp" placeholder="Enter Old Username" disabled="true">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
               <div class="form-group">
-                <label for="exampleInputEmail1" class="form-label mt-4">Username</label>
-                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email" disabled="true">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="exampleInputEmail1" class="form-label mt-4">New Username</label>
+                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter New Username" disabled="true">
+                <small id="emailHelp" class="form-text text-muted"></small>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label mt-4">Birthday</label>
@@ -47,51 +82,127 @@
         </form>
         <button onclick="save()" type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-
+</div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/javascripts/site.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
+function uploaded(){
+    toastr.success( 'Updated successfully');
+}
+
+  $(".file").change(function(event){
+    var x = URL.createObjectURL(event.target.files[0]);
+    //console.log(x);
+    $(".img").attr("src",x);
+    $("#url").val(x);
+    
+    
+})
+  var userObject = {
+        saveUserInLocalStorage : function(userJson){
+            window.localStorage.setItem('currentUser', JSON.stringify(userJson));
+        },
+        removeCurrentUser: function(){
+            window.localStorage.removeItem('currentUser');
+        },
+        getCurrentUser : function(){
+            return window.localStorage.getItem('currentUser');
+        },
+        getCurrentUserName : function(){
+            var curUserString = this.getCurrentUser();
+            if(curUserString){
+                var json = JSON.parse(curUserString);
+                if(json && json.username)
+                    return json.username;
+                return "";
+            }
+            return "";
+        },
+        isUserLoggedIn : function(){
+            if(this.getCurrentUser()==null)
+                return false;
+            return true;
+        }
+    };
+    var user=JSON.parse(localStorage.getItem('currentUser'));
+   var currentuser=user.username;
+   $('#username1').val(currentuser);
+    var value=userObject.getCurrentUserName();
+        $("#oldusername").val(value);
+        
+
     $( ".form-check-input" ).on( "change", function() {
         if($('.form-check-input').prop('checked')){
             //console.log("checked");
         $("#username").prop("disabled", false);
+        //$("#oldusername").prop("disabled", false);
         $("#date").prop("disabled", false);
         $("#email").prop("disabled", false);
         $("#phonenumber").prop("disabled", false);
         }
         else{
+          $("#oldusername").prop("disabled", true);
             $("#username").prop("disabled", true);
         $("#date").prop("disabled", true);
         $("#email").prop("disabled", true);
         $("#phonenumber").prop("disabled", true);
         }
 });
+$.ajax({
+
+        url: "/data"+value,
+        type: "GET",
+        success: function(data) {
+          //console.log("hi");
+        if(data.success){
+          console.log(data);
+          $("#username").val(data.user.username);
+          $("#date").val(data.user.birthday);
+          $("#email").val(data.user.email);
+          $("#phonenumber").val(data.user.phonenumber);
+          $(".img").attr("src",`data:image/png;base64,${data.user.image}`);
+          //console.log(data);
+        //toastr.success( 'Updated successfully');
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+    /*$.post("/api/users",userObject)
+        .done(function(data){
+            console.log(data);
+        });*/
+
 
     function save(){
       console.log("saved");
        // $('#one').html("Registration Successful");
     var userObject={};
+    userObject.oldusername=$("#oldusername").val();
     userObject.username=$("#username").val();
-    userObject.birthday=$("#date").val();
+    userObject.date=$("#date").val();
     userObject.email=$("#email").val();
     userObject.phonenumber=$("#phonenumber").val();
+    userObject.profilePicUrl=$("#url").val();
+    //console.log(userObject);
+    //console.log(userObject.profilePicUrl);
     //console.log(userObject);
     $.ajax({
-        url: "/edit"+username,
+        url: "/edit"+userObject.oldusername,
         type: "PUT",
         data: userObject,
         success: function(data) {
-       /*for(var i=0;i<data.length;i++) {
-           console.log(data[i]);
-          addRow(data[i]);
-        }*/
+          console.log("hi");
+        if(data.success){
+        toastr.success( 'Updated successfully');
+        }
         },
         error: function (xhr, status, error) {
         //alert(error);

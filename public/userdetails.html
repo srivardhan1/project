@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dev-Client</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile.html">Profile</a>
+          </li>
+          
+         
+        </ul>
+      </div>
+  </nav>
+  <div id="table" style="padding-top: 80px;width: 100%;padding-left: 50px;">
+          <table id="tab" style="border: 1px solid white;padding: 10px;">
+            <tr style="border: 1px solid white;padding: 10px;">
+                <th style="border: 1px solid white;padding: 10px;">Profile</th>
+                <th style="border: 1px solid white;padding: 10px;">username</th>
+                <th style="border: 1px solid white;padding: 10px;">Send Request</th>
+                </tr>
+          </table>
+  </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+  var userObject = {
+        saveUserInLocalStorage : function(userJson){
+            window.localStorage.setItem('currentUser', JSON.stringify(userJson));
+        },
+        removeCurrentUser: function(){
+            window.localStorage.removeItem('currentUser');
+        },
+        getCurrentUser : function(){
+            return window.localStorage.getItem('currentUser');
+        },
+        getCurrentUserName : function(){
+            var curUserString = this.getCurrentUser();
+            if(curUserString){
+                var json = JSON.parse(curUserString);
+                if(json && json.username)
+                    return json.username;
+                return "";
+            }
+            return "";
+        },
+        isUserLoggedIn : function(){
+            if(this.getCurrentUser()==null)
+                return false;
+            return true;
+        }
+    };
+    var value=userObject.getCurrentUserName();
+        $("#oldusername").val(value);
+       // $('#one').html("Registration Successful");
+    var userObject={};
+    //console.log(userObject);
+    $.ajax({
+        url: "/api/userdetails",
+        type: "GET",
+        success: function(data) {
+            //console.log(data.users);
+        if(data.success){
+          //console.log(data.users.image);
+           for(var i=0;i<data.users.length;i++){
+             console.log(data.users[i].image);
+            var row = `<tr scope="row" class="test-row-" style="border: 1px solid white;">
+                       <td style="border: 1px solid white;padding: 20px;"><img src='data:image/png;base64,${data.users[i].image}' width="100px" height="100px"></td>
+                       <td style="border: 1px solid white;padding: 20px;">${data.users[i].username}</td>
+                       <td style="border: 1px solid white;padding: 20px;"><button>Send Request</button></td>
+                       </tr>`
+          $('#tab').append(row);
+           }
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+    /*$.post("/api/users",userObject)
+        .done(function(data){
+            console.log(data);
+        });*/
+
+</script>
+</html>

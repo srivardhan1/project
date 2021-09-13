@@ -10,13 +10,38 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js" integrity="sha512-f0AM6x08kthGzMyDHZjBgjBCPp8V8ovlHYCI1jMkhViTeX3MykGCf/DnN1khWss/6d1105eAG4TniSKy6UhZrw==" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 		<link rel="stylesheet" href="/stylesheets/chat.css">
-		<title>ChatCord App</title>
+		<title>Chat</title>
 	</head>
 	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">Dev-client</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+		  
+			  <div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav me-auto">
+				  <li class="nav-item">
+					<a class="nav-link" href="/index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="/profile.html">Profile</a>
+				  </li>
+				</ul>
+			  </div>
+		  </nav>
+		<a href="/index.html"><h2>CLICK HERE TO GO HOME</h2></a>
 		<div class="join-container">
 			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> ChatCord</h1>
+				<h1><i class="fas fa-smile"></i> ChatNow</h1>
 			</header>
 			<main class="join-main">
 				<form action="chat.html">
@@ -33,12 +58,12 @@
 					<div class="form-control">
 						<label for="room">Room</label>
 						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C#">C#</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
+							<option value="JavaScript">Room 1</option>
+							<option value="Python">Room 2</option>
+							<option value="PHP">Room 3</option>
+							<option value="C#">Room 4</option>
+							<option value="Ruby">Room 5</option>
+							<option value="Java">Room 6</option>
 						</select>
 					</div>
 					<button type="submit" class="btn">Join Chat</button>
@@ -46,6 +71,11 @@
 			</main>
 		</div>
 	</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="/socket.io/socket.io.js"></script>
   <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/site.js"></script>
 </html>

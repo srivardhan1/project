@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/uploadimage" enctype="multipart/form-data" method="POST">
+        <img class="img" src="/profile.jpg">
+        <input   type="file" class="file" name="image" >
+        <input type="text" id="username1" name="username1">
+        <input type="submit" value="submit">
+      </form>
+</body>
+<script>
+    $(".file").change(function(event){
+    var x = URL.createObjectURL(event.target.files[0]);
+    console.log(x);
+    $(".img").attr("src",x);
+    $("#url").val(x);
+    
+    
+})
+</script>
+</html>
