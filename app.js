@@ -79,13 +79,13 @@ app.get('/login',function(req,res){
        })
   })
 app.use(session({
-    secret: "goutham",
+    secret: "srivardhan",
     resave: false,
     saveUninitialized: false,
     cookie: {
         maxAge: 60 * 60 * 1000
     },
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECT_STRING})
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING})
 
 }))
   const isAuth=(req,res,next)=>{
